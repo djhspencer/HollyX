@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Christmas at Nelson's",
+    "date": "12/25/2022",
+    "time": "7pm"
+  },
+  {
+    "id": 2,
+    "name": "Xmas Blokes",
+    "date": "12/17/2022",
+    "time": "8pm"
+  },
+  {
+    "id": 3,
+    "name": "Funky Fun Time",
+    "date": "12/23/2022",
+    "time": "5pm"
+  },
+  {
+    "id": 4,
+    "name": "SS 22",
+    "date": "12/13/2022",
+    "time": "9pm"
+  },
+  {
+    "id": 5,
+    "name": "Funky Fun Time",
+    "date": "12/23/2022",
+    "time": "5pm"
+  },
+  {
+    "id": 6,
+    "name": "Funky Fun Time",
+    "date": "12/23/2022",
+    "time": "5pm"
+  }
+]
