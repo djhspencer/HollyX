@@ -110,7 +110,7 @@ export function EventPage() {
 
   //console.log(participationSettings);
   //console.log(owner);
-  //console.log(loading);
+  console.log(loading);
 
   if (!loading) {
     const idList = eventDetails.participants.map((item: any) => {
