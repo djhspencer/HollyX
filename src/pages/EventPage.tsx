@@ -79,7 +79,7 @@ export function EventPage() {
           setOwner(true);
         }
 
-        console.log(eDetails)
+        //console.log(eDetails)
 
         const partList = eDetails.participants.map((item: any) => {
           return item._id;
