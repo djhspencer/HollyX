@@ -40,12 +40,12 @@ export function EventPage() {
       return authAxios(options)
         .then(({ data }) => {
           console.log(data);
+          console.log("Reloading?");
           window.location.reload();
         })
         .catch((e) => {
           console.error(e);
         });
-      
     }
   };
 
@@ -60,34 +60,42 @@ export function EventPage() {
 
     return authAxios(options)
       .then(({ data }) => {
-        console.log(data[1]);
         const eDetails = data[0][0];
-        const userEmail = data[1];
+        const userData = data[1];
+        const userEmail = userData.email;
 
         setEventDetails({
           name: eDetails.name,
           address: eDetails.address,
           budget: eDetails.budget,
-          owner: eDetails.owner,
+          owner: eDetails.owner.name,
           eventDate: eDetails.eventDate,
           participants: eDetails.participants,
           invitedList: eDetails.invitedList,
           declined: eDetails.declined,
         });
 
-        console.log(userEmail);
-        if (eDetails.owner == userEmail) {
+        if (eDetails.owner.email == userEmail) {
           setOwner(true);
         }
 
-        if (eDetails.participants.includes(userEmail)) {
+        console.log(eDetails)
+
+        const partList = eDetails.participants.map((item: any) => {
+          return item._id;
+        });
+        const decList = eDetails.declined.map((item: any) => {
+          return item._id;
+        });
+
+        if (partList.includes(userData._id)) {
           setParticipationSettings("participant");
-        } else if (eDetails.declined.includes(userEmail)) {
+        } else if (decList.includes(userData._id)) {
           setParticipationSettings("declined");
         } else if (eDetails.invitedList.includes(userEmail)) {
           setParticipationSettings("invited");
         }
-        console.log("nothing matched");
+        //console.log("nothing matched");
         setLoading(false);
       })
       .catch((e) => {
@@ -100,9 +108,17 @@ export function EventPage() {
     loadEvent();
   }, [loadEvent]);
 
-  console.log(participationSettings);
-  console.log(owner);
-  console.log(loading);
+  //console.log(participationSettings);
+  //console.log(owner);
+  //console.log(loading);
+
+  if (!loading) {
+    const idList = eventDetails.participants.map((item: any) => {
+      return item._id;
+    });
+    console.log(idList);
+    //console.log(eventDetails.participants[0])
+  }
 
   if (!loading && participationSettings != "not invited") {
     return (
@@ -143,8 +159,10 @@ export function EventPage() {
               backgroundColor="white"
               p="1rem"
               mt="1rem"
+              w="60%"
+              maxW="400px"
             >
-              <Box mb="1rem">
+              <Box mb="1rem" textAlign="center">
                 {participationSettings == "declined"
                   ? "You have declined the invitation"
                   : "You are attending this exchange!"}
@@ -170,14 +188,30 @@ export function EventPage() {
               </Button>
             )
           )}
+          <Box
+            p="0.5rem"
+            mt="1rem"
+            backgroundColor="white"
+            w="60%"
+            display="flex"
+            justifyContent="space-around"
+            alignItems="center"
+            borderRadius="20px 20px 20px 20px"
+          >
+            <Box>Invited: {eventDetails.invitedList.length}</Box>
+            <Box>|</Box>
+            <Box>Joined: {eventDetails.participants.length}</Box>
+          </Box>
+          {eventDetails.declined.map((item: any) => {
+            return item.name;
+          })}
           <Box h="30vh"></Box>
         </Box>
       </Box>
     );
   } else if (participationSettings == "not invited") {
-    return <div>You don't have access to this event</div>
-  }
-  else {
-    return (errorLoading) ? <div>Event Doesn't Exist</div> : <h1>Loading...</h1>
+    return <div>You don't have access to this event</div>;
+  } else {
+    return errorLoading ? <div>Event Doesn't Exist</div> : <h1>Loading...</h1>;
   }
 }

@@ -34,7 +34,6 @@ export function EntryList({ updateInvites, setShowInvites, sendInvites }: EntryL
 
   const sendInvite = () => {
     sendInvites();
-
   }
 
   return (

@@ -2,15 +2,20 @@ import { Box, Button, FormControl, Heading, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAxios } from "../context/AxiosContext";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./CreateEvent.css"
 
 export function CreateEvent() {
-  const { authAxios } = useAxios()
-  const navigate = useNavigate()
+  const { authAxios } = useAxios();
+  const navigate = useNavigate();
   const [eventName, setEventName] = useState("");
   const [eventBudget, setEventBudget] = useState("");
   const [eventAddress, setEventAddress] = useState("");
   const [eventTime, setEventTime] = useState("");
-  const [eventDate, setEventDate] = useState("");
+  const [eventDate, setEventDate] = useState<any>();
+
+  //console.log(eventDate)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -31,7 +36,7 @@ export function CreateEvent() {
     await authAxios(options)
       .then(({ data }) => {
         console.log(data);
-        navigate("/dash")
+        navigate("/dash");
       })
       .catch((error) => {
         console.error(error);
@@ -39,7 +44,7 @@ export function CreateEvent() {
   };
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
+    <Box display="flex" justifyContent="center" alignItems="center" w="100%">
       <Box
         display="flex"
         justifyContent="center"
@@ -94,7 +99,7 @@ export function CreateEvent() {
             required
           />
 
-          <Input
+          {/* <Input
             mb="0.5rem"
             backgroundColor="white"
             type="date"
@@ -105,9 +110,11 @@ export function CreateEvent() {
             id="eventDate"
             //ref={inputRef}
             required
-          />
+          /> */}
 
-          <Input
+          <DatePicker dateFormat="MMMM d, yyyy h:mmaa" showTimeSelect placeholderText="Select a Date" selected={eventDate} onChange={(eventDate) => setEventDate(eventDate)} />
+
+          {/* <Input
             mb="0.5rem"
             backgroundColor="white"
             type="time"
@@ -118,7 +125,7 @@ export function CreateEvent() {
             id="eventTime"
             //ref={inputRef}
             required
-          />
+          /> */}
           <Button onClick={handleSubmit}>Create Event</Button>
         </FormControl>
       </Box>

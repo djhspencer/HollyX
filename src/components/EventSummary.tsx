@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button, FormControl, Heading, Input } from "@chakra-ui/react";
 import { FiMapPin, FiCalendar, FiDollarSign } from "react-icons/fi";
+import { BiTimeFive } from "react-icons/bi";
 
 // type EventDetails = {
 
@@ -14,6 +15,8 @@ import { FiMapPin, FiCalendar, FiDollarSign } from "react-icons/fi";
 
 export function EventSummary({ eventDetails }: any) {
   console.log(eventDetails);
+  const evDate = new Date(eventDetails.eventDate).toLocaleDateString('en-us', { day:"numeric", month:"short", year:"numeric"}) // "Jul 2021 Friday"
+  const evTime = new Date(eventDetails.eventDate).toLocaleTimeString('en-us', { hour:"numeric", minute:"numeric"}) // "Jul 2021 Friday"
   return (
     <Box
       w="100%"
@@ -31,7 +34,11 @@ export function EventSummary({ eventDetails }: any) {
         </Box>
         <Box display="flex" alignItems="center" mb="0.5rem">
           <FiCalendar color="teal" />
-          <Box ml="0.5rem">{eventDetails.eventDate}</Box>
+          <Box ml="0.5rem">{evDate}</Box>
+        </Box>
+        <Box display="flex" alignItems="center" mb="0.5rem">
+          <BiTimeFive color="teal" />
+          <Box ml="0.5rem">{evTime}</Box>
         </Box>
         <Box display="flex" alignItems="center" mb="0.5rem">
           <FiMapPin color="teal" />
