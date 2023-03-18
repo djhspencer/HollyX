@@ -44,15 +44,15 @@ export function CreateEvent() {
   };
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" w="100%">
+    <Box display="flex" justifyContent="center" alignItems="center" w="100%" mb="50vh" mt="8">
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
-        w="100%"
+        w="90%"
         maxW="400px"
         borderRadius="20px"
-        backgroundColor="#4bd1cd"
+        bg="red.600"
         p="20px 20px"
         mt="1rem"
       >

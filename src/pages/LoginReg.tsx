@@ -23,7 +23,7 @@ export function LoginReg() {
   console.log(authState);
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
+    <Box display="flex" justifyContent="center" alignItems="center" mb="50vh" mt="8">
 
       {(login) ? <Login setLogin={setLogin} pathName={pathName}/> : <Register setLogin={setLogin} pathName={pathName}/>}
     </Box>

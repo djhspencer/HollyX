@@ -56,7 +56,7 @@ export function RSVPForm({id, onUpdate}: any) {
           <Radio value="0">No</Radio>
         </Stack>
       </RadioGroup>
-      <Button colorScheme="teal" onClick={handleSubmit}>RSVP</Button>
+      <Button colorScheme="red" bg="red.700" onClick={handleSubmit}>RSVP</Button>
     </Box>
   );
 }

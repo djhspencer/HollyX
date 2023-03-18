@@ -10,6 +10,7 @@ import { Wishlist } from "./pages/Wishlist";
 import { Dashboard } from "./pages/Dashboard";
 import { EventPage } from "./pages/EventPage";
 import { CreateEvent } from "./pages/CreateEvent";
+import { Footer } from "./components/Footer";
 
 function App() {
   const { updateAuthState, authState } = useAuth();
@@ -65,6 +66,7 @@ function App() {
             </Route>
           </Routes>
         </Box>
+        <Footer />
       </>
     );
   } else {

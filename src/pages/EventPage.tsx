@@ -138,7 +138,7 @@ export function EventPage() {
         />
         <EventSummary eventDetails={eventDetails} />
         <Box
-          backgroundColor="#C0FFF1"
+          bg="red.100"
           w="100%"
           display="flex"
           justifyContent="center"

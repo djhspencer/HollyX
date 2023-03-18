@@ -36,7 +36,7 @@ export function Navbar() {
       shadow="base"
       display="flex"
       color="white"
-      bg="#4bd1cd"
+      bg="red.800"
     >
       <Container
         maxW="1100"

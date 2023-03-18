@@ -33,19 +33,19 @@ export function EventSummary({ eventDetails }: any) {
           Hosted by: {eventDetails.owner}
         </Box>
         <Box display="flex" alignItems="center" mb="0.5rem">
-          <FiCalendar color="teal" />
+          <FiCalendar color="#9B2C2C" />
           <Box ml="0.5rem">{evDate}</Box>
         </Box>
         <Box display="flex" alignItems="center" mb="0.5rem">
-          <BiTimeFive color="teal" />
+          <BiTimeFive color="#9B2C2C" />
           <Box ml="0.5rem">{evTime}</Box>
         </Box>
         <Box display="flex" alignItems="center" mb="0.5rem">
-          <FiMapPin color="teal" />
+          <FiMapPin color="#9B2C2C" />
           <Box ml="0.5rem">{eventDetails.address}</Box>
         </Box>
         <Box display="flex" alignItems="center" mb="0.5rem">
-          <FiDollarSign color="teal" />
+          <FiDollarSign color="#9B2C2C" />
           <Box ml="0.5rem">{eventDetails.budget}</Box>
         </Box>
       </Box>

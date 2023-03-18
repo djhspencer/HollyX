@@ -22,8 +22,8 @@ export function Event({ _id, name, eventDate }: EventProps) {
   const evTime = new Date(eventDate).toLocaleTimeString('en-us', { hour:"numeric", minute:"numeric"}) // "Jul 2021 Friday"
 
   return (
-    <Card h="100%" objectFit="cover" bg="#4bd1cd" color="white">
-      <Image src="/imgs/gifts.jpg" objectFit="cover" h="120px" />
+    <Card h="100%" objectFit="cover" bg="red.500" color="white">
+      <Image src="/imgs/gift2.JPG" objectFit="cover" h="120px" borderRadius="0"/>
       <CardHeader display="flex" justifyContent="center" fontWeight="700" textAlign="center">
         <Button variant="link" color="white" onClick={() => navigate(`/event/${_id}`)}>{name}</Button>
       </CardHeader>

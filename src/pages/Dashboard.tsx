@@ -41,7 +41,7 @@ export function Dashboard() {
   }, []);
 
   return (
-    <Box m="1rem">
+    <Box m="1rem" mb="50vh">
       <Heading mb="1rem">Dashboard</Heading>
 
       <SimpleGrid columns={[2, null, 4]} spacing="8px" mb="1rem">
@@ -54,7 +54,7 @@ export function Dashboard() {
           <Card
             h="100%"
             objectFit="cover"
-            bg="#4bd1cd"
+            bg="red.500"
             color="white"
             display="flex"
             justifyContent="center"
@@ -68,10 +68,11 @@ export function Dashboard() {
               fontWeight="700"
               textAlign="center"
               flexDir="column"
+              height="245px"
             >
               <FiPlusCircle
                 onClick={() => navigate("/createEvent")}
-                style={{ width: "80px", height: "80px", paddingBottom: "1rem" }}
+                style={{ width: "80px", height: "80px", paddingBottom: "1rem", cursor: "pointer" }}
               />
               <Button
                 variant="link"
